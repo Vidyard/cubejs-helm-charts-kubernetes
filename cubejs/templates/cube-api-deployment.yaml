@@ -39,7 +39,7 @@ spec:
       containers:
         - name: {{ .Chart.Name }}
           envFrom:
-          {{- if .Values.db-secrets }}
+          {{- if .Values.dbSecrets }}
           - secretRef:
               name: cubejs-secret
           {{- end }}
