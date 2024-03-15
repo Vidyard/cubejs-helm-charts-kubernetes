@@ -39,6 +39,10 @@ spec:
       containers:
         - name: {{ .Chart.Name }}
           envFrom:
+          {{- if .Values.db-secrets }}
+          - secretRef:
+              name: cubejs-secret
+          {{- end }}
           - configMapRef:
               name: {{ .Values.cubeApi.configmap.name }}
           securityContext:
